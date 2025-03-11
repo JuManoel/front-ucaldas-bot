@@ -12,6 +12,8 @@ source venv/bin/activate
 
 # Instalar dependencias de requirements.txt
 pip install -r requirements.txt
-```
+
+# ejecutar
 streamlit run ./main.py
+
 ```
