@@ -20,25 +20,24 @@ class LoginApp:
             'Cambio de carrera': 3,
             'Otro': 4
         }
-        
+
         st.write(f'Cualquier duda sobre la Universidad de Caldas, puedes preguntar aquí.')
 
         self.option = st.selectbox(
             'Sobre que tienes dudas?',
             list(options.keys())
         )
+
         self.option_value = options[self.option]
 
         # Checkbox para aceptar términos y condiciones
         self.agree = st.checkbox('Acepto los términos y condiciones')
-
         # Botón para generar conversación
         if st.button('Generar conversación'):
             if self.agree:
                 st.write(f'Has seleccionado: {self.option}')
                 st.write('Generando conversación...')
                 id = self.connection.make_post_call('llamada', {'law': self.option})
-                st.experimental_rerun()
-                ChatInterface(titulo=self.option, llamada_id=id).display_chat()
+                ChatInterface(titulo=self.option, llamada_id="123456").display_chat()
             else:
                 st.write('Debes aceptar los términos y condiciones para continuar.')
