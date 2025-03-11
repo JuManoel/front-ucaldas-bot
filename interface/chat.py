@@ -52,7 +52,7 @@ class ChatInterface:
     def send_message(self, message):
         if message:
             st.session_state.chat_history.append(f"You: {message}")
-            response = self.connection.make_put_call({"id": self.llamada_id, "mensaje": message})
+            response = self.connection.make_put_call("mensage",{"id": self.llamada_id, "mensaje": message})
             st.session_state.chat_history.append(f"Bot: {response}")
 
 if __name__ == "__main__":
